@@ -1,0 +1,28 @@
+---
+interface Props {
+  action?: string;
+  submitLabel?: string;
+}
+
+const { action = 'https://formspree.io/f/YOUR_FORM_ID', submitLabel = 'Enviar' } = Astro.props;
+---
+
+<form class="form" action={action} method="POST">
+  <div class="form-group">
+    <label for="name">Nombre</label>
+    <input type="text" id="name" name="name" required />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required />
+  </div>
+  <div class="form-group">
+    <label for="phone">Teléfono</label>
+    <input type="tel" id="phone" name="phone" />
+  </div>
+  <div class="form-group">
+    <label for="message">Mensaje</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="btn btn--primary">{submitLabel}</button>
+</form>

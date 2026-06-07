@@ -1,0 +1,46 @@
+# Komuniki - Astro Static Site
+# Override any existing Drupal/PHP configuration
+
+# Disable PHP execution
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
+<FilesMatch "\.(php|php3|php4|php5|php7|phtml)$">
+  Require all denied
+</FilesMatch>
+
+# Set index.html as default document (overrides index.php priority)
+DirectoryIndex index.html
+
+# Enable rewrite engine
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve existing files and directories directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Handle Astro clean URLs: /path -> /path/index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}/index.html -f
+  RewriteRule ^(.+)$ $1/index.html [L]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options nosniff
+  Header always set X-Frame-Options SAMEORIGIN
+</IfModule>
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>

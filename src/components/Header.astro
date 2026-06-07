@@ -1,0 +1,266 @@
+---
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Inicio' },
+  { href: '/quienes-somos', label: 'Quiénes somos' },
+  { href: '/objetivos', label: 'Objetivos' },
+  { href: '/resultados', label: 'Resultados' },
+  { href: '/colaboramos', label: 'Colaboramos' },
+  { href: '/anuncios', label: 'Anuncios' },
+  { href: '/contacto', label: 'Contacto' },
+];
+---
+
+<header class="site-header">
+  <div class="site-header__canvas container">
+    <nav class="site-nav" aria-label="Navegación principal">
+      <button class="mobile-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="site-nav__list">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['site-nav__link', { active: currentPath === link.href }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href="/" class="site-header__logo" aria-label="Inicio Komuniki">
+      <img src="/images/logo-komuniki.png" alt="Komuniki" width="258" height="258" />
+    </a>
+
+    <h1 class="site-header__title">Komuniki</h1>
+
+    <div class="site-header__lang">
+      <a href="/" class="lang-item active" title="Español">
+        <img src="https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/round/ESP.png" alt="Spanish" width="22" height="22" />
+        <span>ES</span>
+      </a>
+      <a href="/fr" class="lang-item" title="Français">
+        <img src="https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/round/FRA.png" alt="French" width="22" height="22" />
+        <span>FR</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 20;
+    background: transparent;
+  }
+
+  .site-header__canvas {
+    position: relative;
+    height: 320px;
+  }
+
+  .site-header__logo {
+    position: absolute;
+    left: 15px;
+    top: 68px;
+    display: block;
+    width: 258px;
+    height: 258px;
+    z-index: 3;
+  }
+
+  .site-header__logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .site-header__title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 44px;
+    font-family: var(--font-heading);
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-orange);
+    margin: 0;
+    z-index: 2;
+  }
+
+  .site-header__lang {
+    position: absolute;
+    right: 18px;
+    top: 94px;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    z-index: 4;
+  }
+
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 14px;
+    color: var(--color-brown);
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .lang-item img {
+    display: block;
+  }
+
+  .lang-item.active span {
+    font-weight: 700;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-brown);
+    z-index: 5;
+  }
+
+  .site-nav__list {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    justify-content: center;
+  }
+
+  .site-nav__link {
+    display: block;
+    padding: 0.25rem 1.1rem;
+    font-family: var(--font-nav);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+
+  .site-nav__link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-peach);
+  }
+
+  .site-nav__link.active {
+    border-bottom-color: transparent;
+    color: var(--color-white);
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+  }
+
+  .mobile-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--color-white);
+    transition: transform 0.3s;
+  }
+
+  @media (max-width: 900px) {
+    .site-header__canvas {
+      height: 150px;
+    }
+
+    .site-header__logo {
+      left: 16px;
+      top: 52px;
+      width: 86px;
+      height: 86px;
+    }
+
+    .site-header__title {
+      top: 62px;
+      left: 124px;
+      transform: none;
+      font-size: 44px;
+    }
+
+    .site-header__lang {
+      right: 16px;
+      top: 66px;
+    }
+
+    .mobile-toggle {
+      display: flex;
+      position: static;
+      margin-left: auto;
+    }
+
+    .site-nav {
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      transform: none;
+      display: flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 0.35rem;
+    }
+
+    .site-nav__list {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-brown);
+      z-index: 99;
+      padding: 1rem 0;
+    }
+
+    .site-nav__list.open {
+      display: flex;
+    }
+
+    .site-nav__link {
+      text-align: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 34px;
+      border-bottom: none;
+    }
+
+    .site-nav__link.active {
+      background: rgba(255, 255, 255, 0.1);
+      border-bottom: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.mobile-toggle');
+  const navList = document.querySelector('.site-nav__list');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = navList?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>

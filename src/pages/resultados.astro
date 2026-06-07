@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Testimonial from '../components/Testimonial.astro';
+---
+
+<Layout title="Resultados" description="Cursos de idiomas en empresas, para niños y adultos. Clases presenciales, virtuales y por teléfono.">
+
+  <div class="page-header">
+    <div class="container">
+      <h1>¿Preparando tu futuro? ¡Este es tu lugar!</h1>
+    </div>
+  </div>
+
+  <!-- Info cursos -->
+  <section class="section section--warm">
+    <div class="container" style="max-width:800px;">
+      <h2 style="margin-bottom:1.5rem;">Cursos en empresas</h2>
+
+      <h3 style="margin-bottom:0.75rem;">Cursos presenciales</h3>
+      <p style="margin-bottom:1rem;">
+        Si quieres ser más competente, te proponemos cursos de inglés, francés, portugués, italiano... Lo que necesites. Hoy en día los idiomas son importantes en los negocios.
+      </p>
+      <p style="margin-bottom:2rem;color:var(--color-text-light);">
+        Al entender la gramática, y al practicar mucho el idioma (la comprensión oral y escrita, la conversación, etc.), adquirirás automatismos casi sin que te des cuenta. El programa se hará en función de tus necesidades, así que cuéntanos todo.
+      </p>
+
+      <h3 style="margin-bottom:0.75rem;">Cursos virtuales o por teléfono</h3>
+      <p style="margin-bottom:1rem;">
+        Las clases virtuales pueden ser de una hora. Las clases por teléfono son clases cortas (30 minutos), una o varias veces a la semana.
+      </p>
+      <p style="margin-bottom:2rem;color:var(--color-text-light);">
+        Si lo deseas, el profesor te dará deberes que te permitirán ver cómo te desenvuelves cuando estás solo. En clase, se corregirán los deberes, el profesor responderá a cualquier pregunta, y luego seguirá la clase con una conversación, lectura, o cualquier actividad.
+      </p>
+
+      <h2 style="margin-bottom:1rem;">Cursos para niños</h2>
+      <p style="margin-bottom:2rem;">
+        Son juegos: crucigramas, sopas de letras, colorear, rodear, cuentos... El profesor solo habla en el idioma enseñado, los niños son como esponjas, no les cuesta entender y pueden reproducir los sonidos a la perfección.
+      </p>
+    </div>
+  </section>
+
+  <!-- Modalidades -->
+  <section class="section section--sand">
+    <div class="container">
+      <h2 class="text-center" style="margin-bottom:2rem;">Elige tu modalidad</h2>
+      <div class="grid grid--4">
+        <div class="card text-center">
+          <h3>Clases individuales</h3>
+          <ul class="features-list">
+            <li>1 profesor / 1 alumno</li>
+            <li>A domicilio / empresa</li>
+            <li>1h / 1h30 / 2h</li>
+            <li>Horario que decides</li>
+          </ul>
+        </div>
+        <div class="card text-center">
+          <h3>Clases en grupo</h3>
+          <ul class="features-list">
+            <li>Grupo reducido</li>
+            <li>A domicilio / empresa</li>
+            <li>1h / 1h30 / 2h</li>
+            <li>Horario que decidís</li>
+          </ul>
+        </div>
+        <div class="card text-center">
+          <h3>Clases virtuales</h3>
+          <ul class="features-list">
+            <li>1 profesor / 1 alumno</li>
+            <li>30 min / 1 hora</li>
+            <li>Horario que decides</li>
+            <li>Mayor flexibilidad</li>
+          </ul>
+        </div>
+        <div class="card text-center">
+          <h3>Por teléfono</h3>
+          <ul class="features-list">
+            <li>1 profesor / 1 alumno</li>
+            <li>30 minutos</li>
+            <li>Horario flexible</li>
+            <li>Efectivo y cómodo</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center" style="margin-top:2rem;">
+        Llámanos para más información: <a href="tel:+34622812442"><strong>Tel: (+34) 622 81 24 42</strong></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Método -->
+  <section class="section section--warm">
+    <div class="container" style="max-width:800px;">
+      <h2 class="text-center" style="margin-bottom:1rem;">¿Por qué un alumno aprende y progresa?</h2>
+      <p class="text-center" style="margin-bottom:2rem;color:var(--color-text-light);">
+        Formamos a los profesores al método: "Aprender como aprender" de L. Ronald Hubbard.
+      </p>
+      <div class="grid grid--3">
+        <div class="card text-center">
+          <h4>1. Gradiente</h4>
+          <p>De forma progresiva, en un gradiente de dificultad adecuado.</p>
+        </div>
+        <div class="card text-center">
+          <h4>2. Realidad</h4>
+          <p>Teniendo la masa (realidad) de lo que estudia, para que no sea teórico sino práctico.</p>
+        </div>
+        <div class="card text-center">
+          <h4>3. Palabras</h4>
+          <p>Se le explica las palabras que desconoce.</p>
+        </div>
+      </div>
+      <p class="text-center" style="margin-top:1.5rem;color:var(--color-text-light);">
+        De esta forma, nos aseguramos de que el alumno sigue entusiasta en su aprendizaje, siendo él consciente de sus progresos en la materia.
+      </p>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="section section--sand">
+    <div class="container" style="max-width:800px;">
+      <h2 class="text-center" style="margin-bottom:2rem;">Algunos testimonios</h2>
+
+      <Testimonial
+        text="Muchas gracias Christine por tu atención. Me ha gustado aprender los números contigo y más cosas."
+        author="Ana, 6 años"
+        context="Presencial en un campamento"
+      />
+      <Testimonial
+        text="Juan está encantado con las clases. Dice que está aprendiendo mucho y que se lo pasa genial. Aprende divirtiéndose. Qué pena que no hubiera comenzado antes, pero mejor tarde que nunca."
+        author="Beatriz, madre de Juan (15 años)"
+        context="Clases virtuales"
+      />
+      <Testimonial
+        text="Le temps que j'ai passé avec toi a été très utile et j'ai amélioré mon français. Et aussi très amusant. J'ai vraiment apprécié de parler avec toi chaque semaine."
+        author="Luis"
+        context="Clases telefónicas"
+      />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--warm text-center">
+    <div class="container">
+      <p style="margin-bottom:1.5rem;">Llena el formulario y una persona de nuestro equipo te contactará pronto para organizar tu progreso.</p>
+      <a href="/contacto" class="btn btn--primary">Contactar</a>
+    </div>
+  </section>
+
+</Layout>
