@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { currentPath } = Astro.props;
+const isFr = currentPath === '/fr' || currentPath.startsWith('/fr/');
 
 const navLinks = [
   { href: '/', label: 'Inicio' },
@@ -43,13 +44,14 @@ const navLinks = [
     </a>
 
     <h1 class="site-header__title">Komuniki</h1>
+    <p class="site-header__tagline">¡Aprende idiomas y <span>comunica</span>!</p>
 
     <div class="site-header__lang">
-      <a href="/" class="lang-item active" title="Español">
+      <a href="/" class:list={['lang-item', { active: !isFr }]} title="Español">
         <img src="https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/round/ESP.png" alt="Spanish" width="22" height="22" />
         <span>ES</span>
       </a>
-      <a href="/fr" class="lang-item" title="Français">
+      <a href="/fr" class:list={['lang-item', { active: isFr }]} title="Français">
         <img src="https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/round/FRA.png" alt="French" width="22" height="22" />
         <span>FR</span>
       </a>
@@ -67,6 +69,7 @@ const navLinks = [
   .site-header__canvas {
     position: relative;
     height: 320px;
+    overflow: hidden;
   }
 
   .site-header__logo {
@@ -87,36 +90,74 @@ const navLinks = [
 
   .site-header__title {
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 44px;
+    left: 58%;
+    transform: translateX(-50%) rotate(-7deg);
+    top: 72px;
     font-family: var(--font-heading);
-    font-size: 80px;
-    font-weight: 700;
+    font-size: 74px;
+    font-weight: 400;
     line-height: 1;
-    color: var(--color-orange);
+    color: var(--color-green);
     margin: 0;
     z-index: 2;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+
+  .site-header__title::after {
+    content: '';
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    bottom: -16px;
+    height: 12px;
+    background: rgba(189, 191, 55, 0.35);
+  }
+
+  .site-header__tagline {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-22%);
+    top: 218px;
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 50px;
+    line-height: 1;
+    color: #0d5d83;
+    z-index: 3;
+    white-space: nowrap;
+  }
+
+  .site-header__tagline span {
+    color: var(--color-orange);
   }
 
   .site-header__lang {
     position: absolute;
-    right: 18px;
-    top: 94px;
+    right: 10px;
+    top: 82px;
     display: flex;
-    gap: 0.4rem;
+    gap: 0;
     align-items: center;
-    z-index: 4;
+    z-index: 8;
+    background: #efefef;
+    border: 1px solid #d7d7d7;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
   }
 
   .lang-item {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
-    font-size: 14px;
+    gap: 0.35rem;
+    padding: 18px 14px;
+    font-size: 16px;
     color: var(--color-brown);
     text-decoration: none;
     line-height: 1;
+  }
+
+  .lang-item + .lang-item {
+    border-left: 1px solid #d7d7d7;
   }
 
   .lang-item img {
@@ -129,11 +170,12 @@ const navLinks = [
 
   .site-nav {
     position: absolute;
-    top: 26px;
-    left: 50%;
+    top: 28px;
+    left: 58%;
     transform: translateX(-50%);
     background: var(--color-brown);
     z-index: 5;
+    white-space: nowrap;
   }
 
   .site-nav__list {
@@ -145,9 +187,10 @@ const navLinks = [
 
   .site-nav__link {
     display: block;
-    padding: 0.25rem 1.1rem;
+    padding: 0.05rem 0.34rem;
     font-family: var(--font-nav);
-    font-size: 30px;
+    font-size: 24px;
+    line-height: 1;
     font-weight: 700;
     color: var(--color-white);
     text-decoration: none;
@@ -162,7 +205,7 @@ const navLinks = [
   }
 
   .site-nav__link.active {
-    border-bottom-color: transparent;
+    border-bottom-color: #ffffff;
     color: var(--color-white);
   }
 
@@ -187,6 +230,7 @@ const navLinks = [
   @media (max-width: 900px) {
     .site-header__canvas {
       height: 150px;
+      overflow: visible;
     }
 
     .site-header__logo {
@@ -197,15 +241,28 @@ const navLinks = [
     }
 
     .site-header__title {
-      top: 62px;
+      top: 68px;
       left: 124px;
       transform: none;
       font-size: 44px;
+      color: var(--color-orange);
+    }
+
+    .site-header__title::after {
+      display: none;
+    }
+
+    .site-header__tagline {
+      display: none;
     }
 
     .site-header__lang {
       right: 16px;
-      top: 66px;
+      top: 62px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      gap: 0.3rem;
     }
 
     .mobile-toggle {
