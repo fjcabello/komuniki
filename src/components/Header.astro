@@ -64,7 +64,9 @@ const frHref = isFr ? currentPath : otherLocalePath;
     </a>
 
     <h1 class="site-header__title">Komuniki</h1>
-    <p class="site-header__tagline">¡Aprende idiomas y <span>comunica</span>!</p>
+    <p class="site-header__tagline">
+      {isFr ? <>Apprends les langues et <span>communique</span> !</> : <>¡Aprende idiomas y <span>comunica</span>!</>}
+    </p>
 
     <div class="site-header__lang">
       <a href={esHref} class:list={['lang-item', { active: !isFr }]} title="Español">
