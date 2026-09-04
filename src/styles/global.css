@@ -226,10 +226,11 @@ ul {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(245, 213, 168, 0.45), rgba(245, 213, 168, 0.45)), url('https://static.wixstatic.com/media/11062b_155feccf8d494b18b70adcd7716b6646f000.jpg/v1/fill/w_1920,h_1080,al_c,q_85,enc_avif,quality_auto/11062b_155feccf8d494b18b70adcd7716b6646f000.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.55;
+  background-image: url('/images/hero-collage-left.jpg'), url('/images/hero-collage-right.jpg');
+  background-repeat: no-repeat, no-repeat;
+  background-size: 50% 100%, 50% 100%;
+  background-position: 0% 50%, 100% 50%;
+  opacity: 0.92;
   transform: scale(1.03);
   animation: hero-bg-drift 18s ease-in-out infinite alternate;
 }
@@ -238,14 +239,17 @@ ul {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(245, 213, 168, 0.35) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(245, 213, 168, 0.18) 100%);
 }
 
 .hero__content {
   position: relative;
   z-index: 2;
   max-width: 700px;
-  padding: 2rem;
+  padding: 2rem 2.5rem;
+  background: rgba(245, 213, 168, 0.82);
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(52, 34, 22, 0.15);
 }
 
 .hero h1 {
@@ -291,10 +295,10 @@ ul {
 
 @keyframes hero-bg-drift {
   0% {
-    background-position: 45% 50%;
+    background-position: 2% 50%, 98% 50%;
   }
   100% {
-    background-position: 55% 50%;
+    background-position: -2% 50%, 102% 50%;
   }
 }
 
