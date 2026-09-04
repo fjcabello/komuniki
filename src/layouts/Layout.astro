@@ -10,14 +10,18 @@ interface Props {
 
 const { title, description = '¡Aprende idiomas y comunica! Academia de idiomas en Madrid - Francés, Inglés, Español y más.' } = Astro.props;
 const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/';
+const pageLang = currentPath === '/fr' || currentPath.startsWith('/fr/') ? 'fr' : 'es';
+const canonicalPath = currentPath === '/' ? '/' : `${currentPath}/`;
+const canonicalUrl = new URL(canonicalPath, Astro.site ?? Astro.url.origin).toString();
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={pageLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

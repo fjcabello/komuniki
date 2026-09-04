@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://academiakomuniki.carpones.com/sitemap-index.xml
