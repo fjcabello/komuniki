@@ -226,10 +226,9 @@ ul {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/images/hero-collage-left.jpg'), url('/images/hero-collage-right.jpg');
-  background-repeat: no-repeat, no-repeat;
-  background-size: 50% 100%, 50% 100%;
-  background-position: 0% 50%, 100% 50%;
+  background-image: url('/images/hero-collage.jpg');
+  background-size: cover;
+  background-position: center;
   opacity: 0.92;
   transform: scale(1.03);
 }
@@ -245,8 +244,8 @@ ul {
   position: relative;
   z-index: 2;
   max-width: 700px;
-  padding: 2rem 2.5rem;
-  background: rgba(245, 213, 168, 0.82);
+  padding: 2.5rem 3rem;
+  background: rgba(245, 213, 168, 0.97);
   border-radius: 8px;
   box-shadow: 0 4px 24px rgba(52, 34, 22, 0.15);
 }
