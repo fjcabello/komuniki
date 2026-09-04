@@ -232,7 +232,6 @@ ul {
   background-position: 0% 50%, 100% 50%;
   opacity: 0.92;
   transform: scale(1.03);
-  animation: hero-bg-drift 18s ease-in-out infinite alternate;
 }
 
 .hero::after {
@@ -290,15 +289,6 @@ ul {
     opacity: 1;
     transform: scale(1);
     filter: blur(0);
-  }
-}
-
-@keyframes hero-bg-drift {
-  0% {
-    background-position: 2% 50%, 98% 50%;
-  }
-  100% {
-    background-position: -2% 50%, 102% 50%;
   }
 }
 
