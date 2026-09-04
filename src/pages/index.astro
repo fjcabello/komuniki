@@ -18,17 +18,19 @@ import Quote from '../components/Quote.astro';
   </section>
 
   <!-- Intro -->
-  <section class="section section--warm">
+  <section class="section section--warm section--stars">
     <div class="container text-center">
-      <h2 style="font-size:2.5rem;margin-bottom:1.5rem;">Aquí podrás aprender, y podrás hacerte más competente aún a través de los idiomas.</h2>
-      <p style="max-width:700px;margin:1.5rem auto;font-size:1.05rem;">
-        <strong style="color:var(--color-teal-dark);font-style:italic;">Nuestro objetivo</strong> : que <em>aprendas</em>, que <em>sepas cada vez más</em> cosas, siendo <em>capaz de aplicar tus conocimientos</em>, es decir hablar el idioma siendo autónomo en tu comunicación con tu cliente, proveedor o cualquier interlocutor.
-      </p>
-      <p style="max-width:700px;margin:0 auto 1.5rem;font-size:1.05rem;">
-        <strong style="color:var(--color-teal-dark);font-style:italic;">¿Para qué?</strong> : para que hagas más cosas, sin depender de nadie, para que demuestres lo que tú puedes dar de ti y puedas tener un futuro mejor.
-      </p>
-      <p style="font-style:italic;margin-bottom:1.5rem;">La educación es la base de una sociedad.</p>
-      <a href="/quienes-somos" class="btn btn--primary">Lee más</a>
+      <div class="intro-card">
+        <h2 style="font-size:2.5rem;margin-bottom:1.5rem;">Aquí podrás aprender, y podrás hacerte más competente aún a través de los idiomas.</h2>
+        <p style="max-width:700px;margin:1.5rem auto;font-size:1.05rem;">
+          <strong style="color:var(--color-teal-dark);font-style:italic;">Nuestro objetivo</strong> : que <em>aprendas</em>, que <em>sepas cada vez más</em> cosas, siendo <em>capaz de aplicar tus conocimientos</em>, es decir hablar el idioma siendo autónomo en tu comunicación con tu cliente, proveedor o cualquier interlocutor.
+        </p>
+        <p style="max-width:700px;margin:0 auto 1.5rem;font-size:1.05rem;">
+          <strong style="color:var(--color-teal-dark);font-style:italic;">¿Para qué?</strong> : para que hagas más cosas, sin depender de nadie, para que demuestres lo que tú puedes dar de ti y puedas tener un futuro mejor.
+        </p>
+        <span class="intro-card__signoff">La educación es la base de una sociedad.</span>
+        <a href="/quienes-somos" class="btn btn--primary">Lee más</a>
+      </div>
     </div>
   </section>
 
@@ -50,11 +52,14 @@ import Quote from '../components/Quote.astro';
   </section>
 
   <!-- Sé competente -->
-  <section class="section section--warm">
+  <section class="section section--warm section--stars">
     <div class="container">
       <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
         <div style="flex:1;min-width:280px;">
-          <h2 style="font-size:2.2rem;">Sé competente a través de los idiomas</h2>
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <img src="/images/icon-quote.png" alt="" width="44" height="44" />
+            <h2 style="font-size:2.2rem;margin:0;">Sé competente a través de los idiomas</h2>
+          </div>
           <img src="/images/parler-francais.jpg" alt="Bonjour! Aprende francés" width="220" height="220" style="margin-top:1.5rem;border-radius:4px;" />
         </div>
         <div style="flex:1;min-width:280px;">
@@ -80,9 +85,14 @@ import Quote from '../components/Quote.astro';
   <!-- Recursos -->
   <section class="section section--sand">
     <div class="container">
-      <h3 class="text-center" style="margin-bottom:2rem;">Sitios interesantes : algunos sitios dónde encontrar material para practicar</h3>
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;">
+        <img src="/images/icon-globe-flags.jpg" alt="" width="70" height="70" style="border-radius:50%;" />
+        <h3 class="text-center" style="margin:0;">Sitios interesantes : algunos sitios dónde encontrar material para practicar</h3>
+        <img src="/images/icon-flags-uk-fr-us.jpg" alt="" width="60" height="60" style="border-radius:50%;" />
+      </div>
       <div class="grid grid--3">
         <div class="card">
+          <img src="/images/icon-eiffel.png" alt="" width="70" style="margin-bottom:0.75rem;" />
           <h4 style="margin-bottom:0.5rem;">Instituto Francés de Madrid</h4>
           <p>Las clases preparadas del Instituto francés de Madrid, aquí encontrarás material especialmente interesante.</p>
           <a href="https://www.institutfrancais.es/madrid/aprender-frances/" target="_blank" rel="noopener noreferrer" style="display:block;margin-top:0.75rem;">Visitar →</a>

@@ -432,6 +432,47 @@ ul {
   font-size: 1.2em;
 }
 
+/* ===== Star texture overlay (used on select sections) ===== */
+.section--stars {
+  position: relative;
+  overflow: hidden;
+}
+
+.section--stars::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/section-stars.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.section--stars > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== Intro card ===== */
+.intro-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(52, 34, 22, 0.12);
+  border-radius: 6px;
+  padding: 2.5rem 3rem;
+  max-width: 820px;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(52, 34, 22, 0.08);
+}
+
+.intro-card__signoff {
+  display: block;
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--color-green);
+  margin-bottom: 1.5rem;
+}
+
 /* ===== Warm background sparkle effect ===== */
 .section--warm::before {
   content: '';
