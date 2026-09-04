@@ -17,6 +17,10 @@ DirectoryIndex index.html
   RewriteEngine On
   RewriteBase /
 
+  # 301 redirects from old Wix URLs (preserve SEO)
+  RewriteRule ^nuestros-colaboradores/?$ /colaboramos/ [R=301,L]
+  RewriteRule ^anunios/?$ /anuncios/ [R=301,L]
+
   # Serve existing files and directories directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

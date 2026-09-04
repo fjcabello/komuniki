@@ -1,13 +1,13 @@
 ---
 interface Props {
-  action?: string;
+  to?: string;
   submitLabel?: string;
 }
 
-const { action = 'https://formspree.io/f/YOUR_FORM_ID', submitLabel = 'Enviar' } = Astro.props;
+const { to = 'christinadauzon@gmail.com', submitLabel = 'Enviar' } = Astro.props;
 ---
 
-<form class="form" action={action} method="POST">
+<form class="form" id="contact-form" data-to={to}>
   <div class="form-group">
     <label for="name">Nombre</label>
     <input type="text" id="name" name="name" required />
@@ -26,3 +26,30 @@ const { action = 'https://formspree.io/f/YOUR_FORM_ID', submitLabel = 'Enviar' }
   </div>
   <button type="submit" class="btn btn--primary">{submitLabel}</button>
 </form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const to = form.dataset.to ?? '';
+    const name = (form.elements.namedItem('name') as HTMLInputElement)?.value ?? '';
+    const email = (form.elements.namedItem('email') as HTMLInputElement)?.value ?? '';
+    const phone = (form.elements.namedItem('phone') as HTMLInputElement)?.value ?? '';
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement)?.value ?? '';
+
+    const subject = `Contacto desde la web - ${name}`;
+    const body = [
+      `Nombre: ${name}`,
+      `Email: ${email}`,
+      phone ? `Teléfono: ${phone}` : null,
+      '',
+      message,
+    ]
+      .filter((line) => line !== null)
+      .join('\n');
+
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
