@@ -5,7 +5,7 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://academiakomuniki.carpones.com',
+  site: 'https://komuniki.cabello-torres.com',
   integrations: [sitemap()],
   vite: {
     plugins: [basicSsl()],
