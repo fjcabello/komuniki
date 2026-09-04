@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# corporate tooling / agent session artifacts (not part of this project)
+.github/agents/
+.playwright-mcp/

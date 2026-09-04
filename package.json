@@ -12,6 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^2.3.0"
   }
 }
