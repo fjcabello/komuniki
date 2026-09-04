@@ -1,29 +1,133 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Quote from '../../components/Quote.astro';
 ---
 
-<Layout title="Accueil" description="Academie Komuniki - Apprends les langues et communique.">
+<Layout title="Accueil" description="Académie Komuniki - Apprends les langues et communique. Cours de français, anglais, espagnol à Madrid. Cours en présentiel, en ligne et par téléphone.">
+
+  <!-- Hero -->
   <section class="hero">
     <div class="hero__content">
       <h1>Komuniki</h1>
       <p class="hero__subtitle">Apprends les langues et communique !</p>
       <div>
-        <a href="/resultados" class="btn btn--primary">Tu veux apprendre ?</a>
-        <a href="/contacto" class="btn btn--orange">Tu veux enseigner ?</a>
+        <a href="/fr/resultados" class="btn btn--primary">Tu veux apprendre ?</a>
+        <a href="/fr/contacto" class="btn btn--orange">Tu veux devenir prof ?</a>
       </div>
     </div>
   </section>
 
-  <section class="section section--warm">
+  <!-- Intro -->
+  <section class="section section--warm section--stars">
     <div class="container text-center">
-      <h2 style="font-size:2.2rem;margin-bottom:1.2rem;">Bienvenue chez Komuniki</h2>
-      <p style="max-width:760px;margin:0 auto 1rem;">
-        Cette version francaise est en cours de migration depuis Wix. Le contenu complet en FR sera ajoute page par page.
-      </p>
-      <p style="max-width:760px;margin:0 auto 1.5rem;">
-        En attendant, tu peux naviguer sur les pages principales et nous contacter pour toute information.
-      </p>
-      <a href="/contacto" class="btn btn--primary">Contact</a>
+      <div class="intro-card">
+        <h2 style="font-size:2.5rem;margin-bottom:1.5rem;">Ici, tu pourras apprendre, et devenir encore plus compétent grâce aux langues.</h2>
+        <p style="max-width:700px;margin:1.5rem auto;font-size:1.05rem;">
+          <strong style="color:var(--color-teal-dark);font-style:italic;">Notre objectif</strong> : que tu <em>apprennes</em>, que tu <em>saches toujours plus de choses</em>, en étant <em>capable d'appliquer tes connaissances</em>, c'est-à-dire parler la langue en étant autonome dans ta communication avec ton client, ton fournisseur ou tout autre interlocuteur.
+        </p>
+        <p style="max-width:700px;margin:0 auto 1.5rem;font-size:1.05rem;">
+          <strong style="color:var(--color-teal-dark);font-style:italic;">Pour quoi faire ?</strong> : pour que tu fasses plus de choses, sans dépendre de personne, pour que tu montres ce que tu peux donner de toi-même et que tu puisses avoir un meilleur avenir.
+        </p>
+        <span class="intro-card__signoff">L'éducation est la base d'une société.</span>
+        <a href="/fr/quienes-somos" class="btn btn--primary">Lire la suite</a>
+      </div>
     </div>
   </section>
+
+  <!-- Citas -->
+  <section class="section section--sand">
+    <div class="container">
+      <h3 class="text-center" style="margin-bottom:2rem;">Nous aimons ces citations :</h3>
+      <div class="grid grid--2">
+        <Quote
+          quote="Dis-moi et j'oublie, enseigne-moi et je me souviens, implique-moi et j'apprends."
+          author="Benjamin Franklin"
+        />
+        <Quote
+          quote="«Si tu parles à un homme dans une langue qu'il comprend, cela va dans sa tête. Si tu lui parles dans sa langue, cela va dans son cœur»"
+          author="Nelson Mandela"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Sé competente -->
+  <section class="section section--warm section--stars">
+    <div class="container">
+      <div style="display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:280px;">
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <img src="/images/icon-quote.png" alt="" width="44" height="44" />
+            <h2 style="font-size:2.2rem;margin:0;">Deviens compétent grâce aux langues</h2>
+          </div>
+          <img src="/images/parler-francais.jpg" alt="Bonjour ! Apprends le français" width="220" height="220" style="margin-top:1.5rem;border-radius:4px;" />
+        </div>
+        <div style="flex:1;min-width:280px;">
+          <h3 style="margin-bottom:1rem;">Actualités sur l'éducation</h3>
+          <p style="margin-bottom:1rem;">Ken Robinson nous explique en quoi l'école tue la créativité</p>
+          <div style="aspect-ratio:16/9;">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/iG9CE55wbtY"
+              title="Ken Robinson - L'école tue la créativité"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recursos -->
+  <section class="section section--sand">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;">
+        <img src="/images/icon-globe-flags.jpg" alt="" width="70" height="70" style="border-radius:50%;" />
+        <h3 class="text-center" style="margin:0;">Sites intéressants : quelques sites où trouver du matériel pour pratiquer</h3>
+        <img src="/images/icon-flags-uk-fr-us.jpg" alt="" width="60" height="60" style="border-radius:50%;" />
+      </div>
+      <div class="grid grid--3">
+        <div class="card">
+          <img src="/images/icon-eiffel.png" alt="" width="70" style="margin-bottom:0.75rem;" />
+          <h4 style="margin-bottom:0.5rem;">Institut Français de Madrid</h4>
+          <p>Les cours préparés par l'Institut français de Madrid : tu y trouveras du matériel particulièrement intéressant.</p>
+          <a href="https://www.institutfrancais.es/madrid/aprender-frances/" target="_blank" rel="noopener noreferrer" style="display:block;margin-top:0.75rem;">Visiter →</a>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom:0.5rem;">TV5 Monde</h4>
+          <p>Les cours préparés par TV5 Monde : très professionnels. Des vidéos d'actualité (tu peux choisir le niveau).</p>
+          <a href="http://apprendre.tv5monde.com/fr" target="_blank" rel="noopener noreferrer" style="display:block;margin-top:0.75rem;">Visiter →</a>
+        </div>
+        <div class="card">
+          <h4 style="margin-bottom:0.5rem;">Le Point du FLE</h4>
+          <p>Une source de matériel de tout type pour apprendre le français.</p>
+          <a href="https://www.lepointdufle.net/" target="_blank" rel="noopener noreferrer" style="display:block;margin-top:0.75rem;">Visiter →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Humor -->
+  <section class="section section--warm" style="padding:1.5rem 0;">
+    <div class="container text-center">
+      <img src="/images/belecole.jpg" alt="Apprendre le français - Belecole" width="220" height="271" style="border-radius:4px;" />
+    </div>
+  </section>
+
+  <!-- Idiomas -->
+  <section class="section section--sand" style="padding:2rem 0;">
+    <div class="container text-center">
+      <p style="font-family:var(--font-heading);font-size:1.1rem;line-height:2.2;">
+        <strong>Espéranto :</strong> komuniki &nbsp;·&nbsp;
+        <strong>Espagnol :</strong> comunica &nbsp;·&nbsp;
+        <strong>Anglais :</strong> communicate &nbsp;·&nbsp;
+        <strong>Français :</strong> communique
+      </p>
+    </div>
+  </section>
+
 </Layout>

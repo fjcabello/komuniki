@@ -1,0 +1,183 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Testimonial from '../../components/Testimonial.astro';
+---
+
+<Layout title="Résultats" description="Cours de langues en entreprise, pour enfants et adultes. Cours en présentiel, en ligne et par téléphone.">
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Tu prépares ton avenir ? C'est ici que ça se passe !</h1>
+    </div>
+  </div>
+
+  <!-- Info cursos -->
+  <section class="section section--warm">
+    <div class="container" style="max-width:800px;">
+      <h2 style="margin-bottom:1.5rem;">Cours en entreprise</h2>
+
+      <h3 style="margin-bottom:0.75rem;">Cours en présentiel</h3>
+      <p style="margin-bottom:1rem;">
+        Si tu veux devenir plus compétent, nous te proposons des cours d'anglais, de français, de portugais, d'italien... tout ce dont tu as besoin. Aujourd'hui, les langues sont essentielles dans le monde des affaires.
+      </p>
+      <p style="margin-bottom:2rem;color:var(--color-text-light);">
+        En comprenant la grammaire et en pratiquant beaucoup la langue (la compréhension orale et écrite, la conversation, etc.), tu acquerras des automatismes presque sans t'en rendre compte. Le programme sera élaboré en fonction de tes besoins, alors raconte-nous tout.
+      </p>
+
+      <h3 style="margin-bottom:0.75rem;">Cours en ligne ou par téléphone</h3>
+      <p style="margin-bottom:1rem;">
+        Les cours en ligne peuvent durer une heure. Les cours par téléphone sont des cours courts (30 minutes), une ou plusieurs fois par semaine.
+      </p>
+      <p style="margin-bottom:2rem;color:var(--color-text-light);">
+        Si tu le souhaites, le professeur te donnera des devoirs qui te permettront de voir comment tu te débrouilles seul. En cours, les devoirs seront corrigés, le professeur répondra à toutes tes questions, puis le cours se poursuivra par une conversation, une lecture ou toute autre activité.
+      </p>
+
+      <h2 style="margin-bottom:1rem;">Cours pour enfants</h2>
+      <p style="margin-bottom:2rem;">
+        Ce sont des jeux : mots croisés, mots mêlés, coloriages, exercices à entourer, contes... Le professeur ne parle que dans la langue enseignée ; les enfants sont comme des éponges, ils comprennent facilement et peuvent reproduire les sons à la perfection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Modalidades -->
+  <section class="section section--sand">
+    <div class="container">
+      <h2 class="text-center" style="margin-bottom:2rem;">Choisis ta formule</h2>
+      <div class="grid grid--4">
+        <div class="card text-center">
+          <h3>Cours individuels</h3>
+          <ul class="features-list">
+            <li>1 professeur / 1 élève</li>
+            <li>À domicile / en entreprise</li>
+            <li>1h / 1h30 / 2h</li>
+            <li>Horaire que tu choisis</li>
+          </ul>
+        </div>
+        <div class="card text-center">
+          <h3>Cours en groupe</h3>
+          <ul class="features-list">
+            <li>Petit groupe</li>
+            <li>À domicile / en entreprise</li>
+            <li>1h / 1h30 / 2h</li>
+            <li>Horaire que vous choisissez</li>
+          </ul>
+        </div>
+        <div class="card text-center">
+          <h3>Cours en ligne</h3>
+          <ul class="features-list">
+            <li>1 professeur / 1 élève</li>
+            <li>30 min / 1 heure</li>
+            <li>Horaire que tu choisis</li>
+            <li>Plus de flexibilité</li>
+          </ul>
+        </div>
+        <div class="card text-center">
+          <h3>Par téléphone</h3>
+          <ul class="features-list">
+            <li>1 professeur / 1 élève</li>
+            <li>30 minutes</li>
+            <li>Horaire flexible</li>
+            <li>Efficace et pratique</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center" style="margin-top:2rem;">
+        Appelle-nous pour plus d'informations : <a href="tel:+34622812442"><strong>Tél. : (+34) 622 81 24 42</strong></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Método -->
+  <section class="section section--warm">
+    <div class="container" style="max-width:800px;">
+      <h2 class="text-center" style="margin-bottom:1rem;">Pourquoi un élève apprend-il et progresse-t-il ?</h2>
+      <p class="text-center" style="margin-bottom:2rem;color:var(--color-text-light);">
+        Nous formons nos professeurs à la méthode « Apprendre à apprendre » de L. Ronald Hubbard.
+      </p>
+      <div class="grid grid--3">
+        <div class="card text-center">
+          <h4>1. Gradient</h4>
+          <p>De façon progressive, selon un gradient de difficulté adapté.</p>
+        </div>
+        <div class="card text-center">
+          <h4>2. Réalité</h4>
+          <p>En ayant la masse (la réalité) de ce qu'il étudie, pour que ce ne soit pas théorique mais pratique.</p>
+        </div>
+        <div class="card text-center">
+          <h4>3. Mots</h4>
+          <p>On lui explique les mots qu'il ne connaît pas.</p>
+        </div>
+      </div>
+      <p class="text-center" style="margin-top:1.5rem;color:var(--color-text-light);">
+        Ainsi, nous nous assurons que l'élève reste enthousiaste dans son apprentissage, tout en étant conscient de ses progrès dans la matière.
+      </p>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="section section--sand">
+    <div class="container" style="max-width:800px;">
+      <h2 class="text-center" style="margin-bottom:2rem;">Quelques témoignages</h2>
+
+      <Testimonial
+        text="Muchas gracias Christine por tu atención. Me ha gustado aprender los números contigo y más cosas."
+        author="Ana, 6 ans"
+        context="En présentiel, en colonie de vacances"
+      />
+      <Testimonial
+        text="Juan está encantado con las clases. Dice que está aprendiendo mucho y que se lo pasa genial. Aprende divirtiéndose. Qué pena que no hubiera comenzado antes, pero mejor tarde que nunca."
+        author="Beatriz, mère de Juan (15 ans)"
+        context="Cours en ligne"
+      />
+      <Testimonial
+        text="Le temps que j'ai passé avec toi a été très utile et j'ai amélioré mon français. Et aussi très amusant. J'ai vraiment apprécié de parler avec toi chaque semaine."
+        author="Luis"
+        context="Cours par téléphone"
+      />
+      <Testimonial
+        text="Christine DAUZON, es muy recomendable, excelente profesora!!"
+        author="Alicia, avocate, employée de Repsol"
+        context="Cours par téléphone"
+      />
+      <Testimonial
+        text="Me alegro mucho de que las niñas hayan compartido contigo las clases de refuerzo de francés. Has sido de mucha ayuda para ellas. Bárbara siempre ha estado muy a gusto en tus clases, y creo que has sido un apoyo estupendo, aunque solo fuera una hora a la semana."
+        author="Yolanda, mère de Bárbara"
+        context="Cours en groupe, 3 élèves"
+      />
+      <Testimonial
+        text="Merci beaucoup ! C'est un plaisir pour moi aussi de travailler avec vous. Il n'est pas facile de trouver une prof si professionnelle, qui rend l'apprentissage si amusant et intéressant."
+        author="Marta"
+        context="Cours par téléphone et en ligne, niveau avancé"
+      />
+      <Testimonial
+        text="Christine DAUZON es una excelente profesora de francés, sus clases son muy interesantes y amenas."
+        author="Martín, avocat, employé de Repsol"
+        context="Cours individuels"
+      />
+      <Testimonial
+        text="Confiamos en seguir contando contigo el año que viene. Eres una MAGNIFICA profesional y es una suerte tenerte como profesora. Feliz verano!!"
+        author="Miren et Fernando, parents de trois élèves"
+        context="Cours individuels"
+      />
+      <Testimonial
+        text="La verdad es que el campamento en Francia les sentó muy bien y ha motivado mucho!! Un gusto que estén tan bien contigo."
+        author="Isabel, mère de trois élèves"
+        context="Cours individuels en ligne"
+      />
+      <Testimonial
+        text="Je te remercie pour ces derniers mois de cours, et je te félicite sincèrement pour un travail exceptionnel : tes cours sont professionnels à la fois que profitables et plaisants."
+        author="Lucía"
+        context="Cours par téléphone, niveau très avancé"
+      />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--warm text-center">
+    <div class="container">
+      <p style="margin-bottom:1.5rem;">Remplis le formulaire et une personne de notre équipe te contactera bientôt pour organiser ta progression.</p>
+      <a href="/fr/contacto" class="btn btn--primary">Contacter</a>
+    </div>
+  </section>
+
+</Layout>

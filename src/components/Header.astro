@@ -6,7 +6,7 @@ interface Props {
 const { currentPath } = Astro.props;
 const isFr = currentPath === '/fr' || currentPath.startsWith('/fr/');
 
-const navLinks = [
+const navLinksEs = [
   { href: '/', label: 'Inicio' },
   { href: '/quienes-somos', label: 'Quiénes somos' },
   { href: '/objetivos', label: 'Objetivos' },
@@ -15,6 +15,26 @@ const navLinks = [
   { href: '/anuncios', label: 'Anuncios' },
   { href: '/contacto', label: 'Contacto' },
 ];
+
+const navLinksFr = [
+  { href: '/fr', label: 'Accueil' },
+  { href: '/fr/quienes-somos', label: 'Qui sommes-nous' },
+  { href: '/fr/objetivos', label: 'Objectifs' },
+  { href: '/fr/resultados', label: 'Résultats' },
+  { href: '/fr/colaboramos', label: 'Collaborons' },
+  { href: '/fr/anuncios', label: 'Annonces' },
+  { href: '/fr/contacto', label: 'Contact' },
+];
+
+const navLinks = isFr ? navLinksFr : navLinksEs;
+
+// Derive the equivalent path in the other locale by adding/stripping the
+// "/fr" prefix, since the ES and FR route trees share identical slugs.
+const otherLocalePath = isFr
+  ? (currentPath === '/fr' ? '/' : currentPath.replace(/^\/fr/, '') || '/')
+  : (currentPath === '/' ? '/fr' : `/fr${currentPath}`);
+const esHref = isFr ? otherLocalePath : currentPath;
+const frHref = isFr ? currentPath : otherLocalePath;
 ---
 
 <header class="site-header">
@@ -47,11 +67,11 @@ const navLinks = [
     <p class="site-header__tagline">¡Aprende idiomas y <span>comunica</span>!</p>
 
     <div class="site-header__lang">
-      <a href="/" class:list={['lang-item', { active: !isFr }]} title="Español">
+      <a href={esHref} class:list={['lang-item', { active: !isFr }]} title="Español">
         <img src="https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/round/ESP.png" alt="Spanish" width="22" height="22" />
         <span>ES</span>
       </a>
-      <a href="/fr" class:list={['lang-item', { active: isFr }]} title="Français">
+      <a href={frHref} class:list={['lang-item', { active: isFr }]} title="Français">
         <img src="https://static.parastorage.com/services/linguist-flags/1.1005.0/assets/flags/round/FRA.png" alt="French" width="22" height="22" />
         <span>FR</span>
       </a>
