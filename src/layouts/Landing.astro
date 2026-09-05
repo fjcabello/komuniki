@@ -4,14 +4,82 @@ import '../styles/landing.css';
 interface Props {
   title: string;
   description?: string;
+  /** Sólo la home tiene equivalente en francés: ahí emitimos hreflang. */
+  hreflang?: boolean;
+  /** JSON-LD adicional de la página (el de la organización va siempre). */
+  schema?: Record<string, unknown>;
 }
 
 const {
   title,
   description = 'Clases de francés, inglés y español con Christine Dauzon. Adultos, niños y empresas en Madrid: presencial, online o por teléfono.',
+  hreflang = false,
+  schema,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
+const site = Astro.site ?? new URL(Astro.url.origin);
+const canonical = new URL(Astro.url.pathname, site).toString();
+const ogImage = new URL('/images/og-komuniki.jpg', site).toString();
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  '@id': new URL('/#organization', site).toString(),
+  name: 'Academia Komuniki',
+  alternateName: 'Komuniki',
+  description:
+    'Academia de idiomas en Getafe (Madrid). Clases de francés, inglés y español para adultos, niños y empresas, presenciales, online o por teléfono.',
+  url: site.toString(),
+  logo: new URL('/images/logo-komuniki.png', site).toString(),
+  image: ogImage,
+  email: 'christinadauzon@gmail.com',
+  telephone: '+34622812442',
+  founder: { '@type': 'Person', name: 'Christine Dauzon' },
+  address: {
+    '@type': 'PostalAddress',
+    postalCode: '28903',
+    addressLocality: 'Getafe',
+    addressRegion: 'Madrid',
+    addressCountry: 'ES',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Getafe' },
+    { '@type': 'City', name: 'Madrid' },
+  ],
+  knowsLanguage: ['fr', 'en', 'es'],
+  sameAs: [
+    'https://www.facebook.com/AprendeIdiomasYComunica/',
+    'https://www.linkedin.com/in/christine-dauzon-7a071266/',
+  ],
+  // Opiniones reales de alumnos y familias. Sin reviewRating a propósito:
+  // no tenemos puntuaciones numéricas y no vamos a inventarlas.
+  review: [
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Beatriz' },
+      reviewBody:
+        'Juan está encantado con las clases. Dice que está aprendiendo mucho y que se lo pasa genial. Aprende divirtiéndose.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Miren y Fernando' },
+      reviewBody:
+        'Eres una MAGNÍFICA profesional y es una suerte tenerte como profesora.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Martín' },
+      reviewBody:
+        'Christine Dauzon es una excelente profesora de francés, sus clases son muy interesantes y amenas.',
+    },
+    {
+      '@type': 'Review',
+      author: { '@type': 'Person', name: 'Yolanda' },
+      reviewBody:
+        'Has sido de mucha ayuda para ellas. Bárbara siempre ha estado muy a gusto en tus clases.',
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -23,19 +91,38 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).to
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/images/logo-komuniki.png" />
 
+    {
+      hreflang && (
+        <>
+          <link rel="alternate" hreflang="es" href={new URL('/', site).toString()} />
+          <link rel="alternate" hreflang="fr" href={new URL('/fr/', site).toString()} />
+          <link rel="alternate" hreflang="x-default" href={new URL('/', site).toString()} />
+        </>
+      )
+    }
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Academia Komuniki" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
 
     <title>{title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
   </head>
   <body>
     <slot />

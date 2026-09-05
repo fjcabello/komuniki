@@ -548,6 +548,71 @@ p {
   color: var(--text-soft);
 }
 
+/* ---------- Cabecera de páginas interiores ---------- */
+
+.page-hero {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2rem, 4vw, 3rem);
+  background: linear-gradient(180deg, var(--sky-tint) 0%, var(--paper) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero h1 {
+  font-size: var(--step-4);
+  max-width: 18ch;
+  margin-bottom: 1.1rem;
+}
+
+.breadcrumb {
+  font-size: var(--step--1);
+  color: var(--text-soft);
+  margin-bottom: 1.1rem;
+}
+
+.breadcrumb a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--sky);
+}
+
+.breadcrumb a:hover {
+  color: var(--amber-deep);
+}
+
+.prose {
+  max-width: 68ch;
+}
+
+.prose h2 {
+  font-size: var(--step-2);
+  margin-top: 2.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose p + p {
+  margin-top: 1rem;
+}
+
+.prose p {
+  color: var(--text-soft);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- Audiencias ---------- */
 
 .audience {

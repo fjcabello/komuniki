@@ -10,6 +10,8 @@ const audiencias = [
     texto:
       'Para el trabajo, para viajar, para preparar un examen o simplemente por curiosidad. Fijamos el objetivo y el ritmo contigo.',
     items: ['Clases individuales', 'Grupos reducidos', 'Por teléfono, 30 minutos', 'Clases virtuales'],
+    href: '/clases-online-y-por-telefono',
+    cta: 'Ver clases online y por teléfono',
   },
   {
     num: '02',
@@ -17,6 +19,8 @@ const audiencias = [
     texto:
       'Un niño no aprende como un adulto. Por eso tienen profesores especializados y clases pensadas para su edad.',
     items: ['Juegos, canciones e historias', 'Apoyo escolar y refuerzo', 'Temas y métodos adaptados', 'El profesor solo habla en el idioma'],
+    href: '/clases-para-ninos',
+    cta: 'Ver clases para niños',
   },
   {
     num: '03',
@@ -24,6 +28,8 @@ const audiencias = [
     texto:
       'Inglés, francés, portugués, italiano… lo que necesite tu equipo. Nos desplazamos a la empresa y el programa se hace a medida.',
     items: ['Programa según vuestras necesidades', 'En vuestra oficina o en remoto', 'Individual o en grupo', 'Horarios compatibles con el trabajo'],
+    href: '/clases-para-empresas',
+    cta: 'Ver clases para empresas',
   },
 ];
 
@@ -128,6 +134,7 @@ const opiniones = [
 <Landing
   title="Komuniki · Clases de francés, inglés y español con Christine Dauzon"
   description="Clases de idiomas para adultos, niños y empresas en Madrid. Presencial, online o por teléfono, siempre adaptadas a ti. Christine Dauzon — academia Komuniki."
+  hreflang
 >
   <Header />
 
@@ -197,6 +204,9 @@ const opiniones = [
                     <li>{li}</li>
                   ))}
                 </ul>
+                <a class="link-arrow" href={item.href}>
+                  {item.cta} →
+                </a>
               </article>
             ))
           }

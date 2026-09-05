@@ -1,26 +1,33 @@
 ---
+interface Props {
+  /** En páginas que no son la home, las anclas necesitan apuntar a "/". */
+  anchorBase?: string;
+}
+
+const { anchorBase = '' } = Astro.props;
+
 const links = [
-  { href: '#inicio', label: 'Inicio' },
-  { href: '#clases', label: 'Clases' },
-  { href: '#metodo', label: 'Método' },
-  { href: '#christine', label: 'Sobre mí' },
-  { href: '#opiniones', label: 'Opiniones' },
-  { href: '#contacto', label: 'Contacto' },
+  { href: `${anchorBase}#inicio`, label: 'Inicio' },
+  { href: `${anchorBase}#clases`, label: 'Clases' },
+  { href: `${anchorBase}#metodo`, label: 'Método' },
+  { href: `${anchorBase}#christine`, label: 'Sobre mí' },
+  { href: `${anchorBase}#opiniones`, label: 'Opiniones' },
+  { href: `${anchorBase}#contacto`, label: 'Contacto' },
 ];
 ---
 
 <header class="site-header" id="siteHeader">
   <div class="wrap site-header__inner">
-    <a href="#inicio" class="brand" aria-label="Komuniki — inicio">
+    <a href={`${anchorBase}#inicio`} class="brand" aria-label="Komuniki — inicio">
       <img src="/images/logo-komuniki.png" alt="Komuniki — aprende idiomas y comunica" width="258" height="258" />
     </a>
 
     <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
       {links.map((link) => <a href={link.href} data-nav-link>{link.label}</a>)}
-      <a href="#contacto" class="btn btn--primary nav-cta">Escríbeme</a>
+      <a href={`${anchorBase}#contacto`} class="btn btn--primary nav-cta">Escríbeme</a>
     </nav>
 
-    <a href="#contacto" class="btn btn--primary btn--sm header-cta">Escríbeme</a>
+    <a href={`${anchorBase}#contacto`} class="btn btn--primary btn--sm header-cta">Escríbeme</a>
 
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menú">
       <span></span>
@@ -56,8 +63,13 @@ const links = [
 
   // Enlace activo según la sección visible
   const navLinks = [...document.querySelectorAll('[data-nav-link]')] as HTMLAnchorElement[];
+  // Sólo espiamos anclas de esta misma página: en las páginas interiores los
+  // enlaces son "/#seccion", que no es un selector válido ni existe aquí.
   const sections = navLinks
-    .map((link) => document.querySelector(link.getAttribute('href') ?? ''))
+    .map((link) => {
+      const href = link.getAttribute('href') ?? '';
+      return href.startsWith('#') ? document.querySelector(href) : null;
+    })
     .filter((el): el is Element => Boolean(el));
 
   if (sections.length) {

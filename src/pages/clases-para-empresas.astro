@@ -1,0 +1,146 @@
+---
+import Landing from '../layouts/Landing.astro';
+import Header from '../components/landing/Header.astro';
+import Footer from '../components/landing/Footer.astro';
+
+const opiniones = [
+  {
+    texto: 'Christine Dauzon es muy recomendable. ¡Excelente profesora!',
+    autor: 'Alicia',
+    contexto: 'Abogada en Repsol · Clases por teléfono',
+  },
+  {
+    texto: 'Christine Dauzon es una excelente profesora de francés, sus clases son muy interesantes y amenas.',
+    autor: 'Martín',
+    contexto: 'Abogado en Repsol · Clases individuales',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Clases de idiomas para empresas',
+  description:
+    'Formación en idiomas a medida para equipos: inglés, francés, portugués o italiano, en la propia oficina, online o por teléfono.',
+  inLanguage: 'es',
+  provider: { '@id': 'https://komuniki.cabello-torres.com/#organization' },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: ['onsite', 'online'],
+    instructor: { '@type': 'Person', name: 'Christine Dauzon' },
+    location: {
+      '@type': 'Place',
+      address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
+    },
+  },
+};
+---
+
+<Landing
+  title="Clases de idiomas para empresas en Madrid | Komuniki"
+  description="Formación en idiomas para empresas en Madrid: inglés, francés, portugués o italiano. Nos desplazamos a vuestra oficina, o en remoto. Programa a medida según las necesidades del equipo."
+  schema={schema}
+>
+  <Header anchorBase="/" />
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="breadcrumb"><a href="/">Inicio</a> · Empresas</p>
+        <span class="eyebrow">Empresas</span>
+        <h1>Clases de idiomas para empresas en Madrid</h1>
+        <p class="lede">
+          Inglés, francés, portugués, italiano… lo que necesite tu equipo. Nos desplazamos a la
+          oficina y el programa se construye sobre vuestro trabajo real, no sobre un temario
+          genérico.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap two-col">
+        <div class="prose">
+          <h2>El programa se hace a medida</h2>
+          <p>
+            Antes de empezar hablamos de para qué necesitáis el idioma: atender a un cliente, negociar
+            con un proveedor, viajar, presentar en una reunión o preparar una certificación. A partir
+            de ahí se define el temario, el ritmo y el vocabulario que se trabaja.
+          </p>
+          <p>
+            Al entender la gramática y practicar mucho —comprensión oral y escrita, conversación— se
+            adquieren automatismos casi sin darse cuenta. El objetivo no es aprobar un examen interno:
+            es que la persona se maneje sola delante de un interlocutor.
+          </p>
+
+          <h2>Cómo se organizan las clases</h2>
+          <p>
+            Individuales o en grupo reducido, en vuestras oficinas o en remoto, con horarios
+            compatibles con la jornada. Para equipos con poca disponibilidad funcionan
+            especialmente bien las clases por teléfono de 30 minutos: cortas, frecuentes y fáciles de
+            encajar.
+          </p>
+        </div>
+
+        <div>
+          <div class="modes" style="border-top:none;">
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Individual</h3>
+              <p>Un profesor por alumno, en la oficina o donde os venga bien.</p>
+              <span class="mode-row__meta">1 h · 1 h 30 · 2 h</span>
+            </div>
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Grupo reducido</h3>
+              <p>Mismo nivel, más conversación y coste compartido por asistente.</p>
+              <span class="mode-row__meta">1 h · 1 h 30 · 2 h</span>
+            </div>
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Online</h3>
+              <p>Para equipos repartidos entre varias sedes o en teletrabajo.</p>
+              <span class="mode-row__meta">30 min · 1 h</span>
+            </div>
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Por teléfono</h3>
+              <p>Sesiones cortas y frecuentes cuando la agenda no da para más.</p>
+              <span class="mode-row__meta">30 min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="wrap">
+        <span class="eyebrow">Opiniones</span>
+        <h2 class="h-section" style="margin-bottom:2rem;">Profesionales que ya dan clase con Christine</h2>
+        <div class="quote-grid" style="columns:2;">
+          {
+            opiniones.map((op) => (
+              <figure class="quote-card">
+                <p>«{op.texto}»</p>
+                <footer>
+                  <strong>{op.autor}</strong>
+                  {op.contexto}
+                </footer>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div>
+          <h2>¿Formamos a tu equipo?</h2>
+          <p>Cuéntame qué necesitáis y os propongo cómo enfocarlo, sin compromiso.</p>
+        </div>
+        <div class="hero__actions" style="margin:0;">
+          <a href="/#contacto" class="btn btn--ink">Escríbeme</a>
+          <a href="tel:+34622812442" class="btn btn--light">622 81 24 42</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Landing>

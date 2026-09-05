@@ -1,0 +1,150 @@
+---
+import Landing from '../layouts/Landing.astro';
+import Header from '../components/landing/Header.astro';
+import Footer from '../components/landing/Footer.astro';
+
+const opiniones = [
+  {
+    texto:
+      'Le temps que j’ai passé avec toi a été très utile et j’ai amélioré mon français. Et aussi très amusant. J’ai vraiment apprécié de parler avec toi chaque semaine.',
+    autor: 'Luis',
+    contexto: 'Clases telefónicas',
+    fr: true,
+  },
+  {
+    texto:
+      'Merci beaucoup ! C’est un plaisir pour moi aussi de travailler avec vous. Il n’est pas facile de trouver une prof si professionnelle, qui rend l’apprentissage si amusant et intéressant.',
+    autor: 'Marta',
+    contexto: 'Teléfono y online · Nivel avanzado',
+    fr: true,
+  },
+  {
+    texto:
+      'Je te remercie pour ces derniers mois de cours, et je te félicite sincèrement pour un travail exceptionnel : tes cours sont professionnels à la fois que profitables et plaisants.',
+    autor: 'Lucía',
+    contexto: 'Clases por teléfono · Nivel muy avanzado',
+    fr: true,
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Clases de idiomas online y por teléfono',
+  description:
+    'Clases de francés, inglés y español por videollamada o por teléfono, de 30 minutos o una hora, con horario flexible.',
+  inLanguage: 'es',
+  provider: { '@id': 'https://komuniki.cabello-torres.com/#organization' },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'online',
+    instructor: { '@type': 'Person', name: 'Christine Dauzon' },
+  },
+};
+---
+
+<Landing
+  title="Clases de idiomas online y por teléfono | Komuniki"
+  description="Clases de francés, inglés y español por videollamada o por teléfono. Sesiones de 30 minutos o una hora, con horario flexible y la misma preparación que una clase presencial."
+  schema={schema}
+>
+  <Header anchorBase="/" />
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="breadcrumb"><a href="/">Inicio</a> · Online y teléfono</p>
+        <span class="eyebrow">A distancia</span>
+        <h1>Clases de idiomas online y por teléfono</h1>
+        <p class="lede">
+          La modalidad que mejor funciona cuando no hay tiempo: sesiones cortas, frecuentes y con la
+          misma preparación que una clase presencial. Desde donde estés.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap two-col">
+        <div class="prose">
+          <h2>Por teléfono: 30 minutos que cunden</h2>
+          <p>
+            Media hora, una o varias veces por semana. Suena a poco y es justo lo contrario: al ser
+            corta y frecuente, la clase mantiene el idioma activo sin exigirte reservar una tarde. Y
+            al no haber pantalla ni gestos, obliga a escuchar de verdad — que es exactamente lo que
+            cuesta en una llamada real de trabajo.
+          </p>
+
+          <h2>Online: una hora con todo el material</h2>
+          <p>
+            Por videollamada se puede compartir texto, corregir por escrito y trabajar la
+            comprensión lectora, además de la conversación. Si quieres, el profesor te deja deberes
+            que te permitirán ver cómo te desenvuelves cuando estás solo; en la clase siguiente se
+            corrigen, se resuelven las dudas y se sigue con lectura o conversación.
+          </p>
+
+          <h2>Para quién funciona especialmente bien</h2>
+          <p>
+            Para quien viaja, para equipos repartidos en varias sedes, para adolescentes que ya se
+            manejan solos delante de una pantalla y para cualquiera que haya intentado apuntarse a
+            una academia y lo haya dejado por los horarios.
+          </p>
+        </div>
+
+        <div>
+          <div class="modes" style="border-top:none;">
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Por teléfono</h3>
+              <p>Sesiones cortas y frecuentes, sin necesidad de conexión ni cámara.</p>
+              <span class="mode-row__meta">30 min</span>
+            </div>
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Videollamada</h3>
+              <p>Con material compartido y corrección por escrito durante la clase.</p>
+              <span class="mode-row__meta">30 min · 1 h</span>
+            </div>
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Horario</h3>
+              <p>Lo eliges tú, y se puede mover si una semana no te encaja.</p>
+              <span class="mode-row__meta">Flexible</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="wrap">
+        <span class="eyebrow">Opiniones</span>
+        <h2 class="h-section" style="margin-bottom:2rem;">Alumnos que dan clase a distancia</h2>
+        <div class="quote-grid">
+          {
+            opiniones.map((op) => (
+              <figure class:list={['quote-card', { 'quote-card--fr': op.fr }]}>
+                <p>«{op.texto}»</p>
+                <footer>
+                  <strong>{op.autor}</strong>
+                  {op.contexto}
+                </footer>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div>
+          <h2>¿Probamos una?</h2>
+          <p>Dime tu nivel aproximado y qué horario te encaja, y lo organizamos.</p>
+        </div>
+        <div class="hero__actions" style="margin:0;">
+          <a href="/#contacto" class="btn btn--ink">Escríbeme</a>
+          <a href="https://wa.me/34622812442" target="_blank" rel="noopener noreferrer" class="btn btn--light">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Landing>

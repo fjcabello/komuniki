@@ -1,0 +1,157 @@
+---
+import Landing from '../layouts/Landing.astro';
+import Header from '../components/landing/Header.astro';
+import Footer from '../components/landing/Footer.astro';
+
+const opiniones = [
+  {
+    texto:
+      'Juan está encantado con las clases. Dice que está aprendiendo mucho y que se lo pasa genial. Aprende divirtiéndose.',
+    autor: 'Beatriz',
+    contexto: 'Madre de Juan, 15 años · Clases virtuales',
+  },
+  {
+    texto:
+      'Me alegro mucho de que las niñas hayan compartido contigo las clases de refuerzo de francés. Has sido de mucha ayuda para ellas. Bárbara siempre ha estado muy a gusto en tus clases.',
+    autor: 'Yolanda',
+    contexto: 'Madre de Bárbara · Clases en grupo, 3 alumnas',
+  },
+  {
+    texto: 'Muchas gracias Christine por tu atención. Me ha gustado aprender los números contigo y más cosas.',
+    autor: 'Ana, 6 años',
+    contexto: 'Presencial en un campamento',
+  },
+  {
+    texto:
+      'Confiamos en seguir contando contigo el año que viene. Eres una MAGNÍFICA profesional y es una suerte tenerte como profesora.',
+    autor: 'Miren y Fernando',
+    contexto: 'Padres de tres alumnos · Clases individuales',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: 'Clases de idiomas y apoyo escolar para niños y adolescentes',
+  description:
+    'Clases de francés e inglés y refuerzo escolar para niños y adolescentes en Madrid, con profesores especializados en su edad.',
+  inLanguage: 'es',
+  provider: { '@id': 'https://komuniki.cabello-torres.com/#organization' },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: ['onsite', 'online'],
+    instructor: { '@type': 'Person', name: 'Christine Dauzon' },
+    location: {
+      '@type': 'Place',
+      address: { '@type': 'PostalAddress', addressLocality: 'Getafe', addressRegion: 'Madrid', addressCountry: 'ES' },
+    },
+  },
+};
+---
+
+<Landing
+  title="Clases de idiomas y apoyo escolar para niños en Madrid | Komuniki"
+  description="Clases de francés e inglés y refuerzo escolar para niños y adolescentes en Getafe y Madrid. Juegos, canciones e historias, con profesores especializados. Presencial u online."
+  schema={schema}
+>
+  <Header anchorBase="/" />
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="breadcrumb"><a href="/">Inicio</a> · Niños y adolescentes</p>
+        <span class="eyebrow">Niños y adolescentes</span>
+        <h1>Clases de idiomas y apoyo escolar para niños</h1>
+        <p class="lede">
+          Un niño no aprende como un adulto. Por eso tienen profesores especializados, materiales
+          pensados para su edad y clases en las que casi no se nota que están estudiando.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap two-col">
+        <div class="prose">
+          <h2>Aprender jugando, pero en serio</h2>
+          <p>
+            Las clases se apoyan en juegos, canciones, cuentos, crucigramas, sopas de letras y
+            dibujos. El profesor habla solo en el idioma que se enseña: los niños son como esponjas,
+            no les cuesta entender y reproducen los sonidos a la perfección.
+          </p>
+          <p>
+            Con los adolescentes el enfoque cambia: se trabaja sobre lo que están dando en clase,
+            se corrigen las lagunas que arrastran y se prepara lo que viene, sin perder de vista que
+            tienen que acabar hablando.
+          </p>
+
+          <h2>Refuerzo del colegio y del instituto</h2>
+          <p>
+            Si la asignatura se les está atragantando, el apoyo escolar sigue el temario del centro y
+            se centra en lo que de verdad les está frenando. Muchas veces no es la gramática: es una
+            palabra que nadie les explicó a tiempo y que arrastran desde hace dos cursos.
+          </p>
+        </div>
+
+        <div>
+          <div class="modes" style="border-top:none;">
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Individual</h3>
+              <p>A domicilio, con toda la atención puesta en un solo alumno.</p>
+              <span class="mode-row__meta">1 h · 1 h 30</span>
+            </div>
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Grupo reducido</h3>
+              <p>Hermanos o amigos del mismo nivel: más conversación y más juego.</p>
+              <span class="mode-row__meta">1 h · 1 h 30</span>
+            </div>
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Online</h3>
+              <p>Funciona muy bien con adolescentes y evita desplazamientos.</p>
+              <span class="mode-row__meta">30 min · 1 h</span>
+            </div>
+            <div class="mode-row" style="grid-template-columns:1fr;">
+              <h3>Apoyo escolar</h3>
+              <p>Seguimiento del curso, con el temario del colegio o instituto.</p>
+              <span class="mode-row__meta">A medida</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="wrap">
+        <span class="eyebrow">Opiniones</span>
+        <h2 class="h-section" style="margin-bottom:2rem;">Lo que cuentan las familias</h2>
+        <div class="quote-grid">
+          {
+            opiniones.map((op) => (
+              <figure class="quote-card">
+                <p>«{op.texto}»</p>
+                <footer>
+                  <strong>{op.autor}</strong>
+                  {op.contexto}
+                </footer>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div>
+          <h2>¿Empezamos con tu hijo o hija?</h2>
+          <p>Cuéntame en qué curso está y qué le cuesta, y te digo cómo lo enfocaría.</p>
+        </div>
+        <div class="hero__actions" style="margin:0;">
+          <a href="/#contacto" class="btn btn--ink">Escríbeme</a>
+          <a href="https://wa.me/34622812442" target="_blank" rel="noopener noreferrer" class="btn btn--light">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Landing>
