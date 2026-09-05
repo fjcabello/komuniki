@@ -9,7 +9,7 @@ const audiencias = [
     titulo: 'Adultos',
     texto:
       'Para el trabajo, para viajar, para preparar un examen o simplemente por curiosidad. Fijamos el objetivo y el ritmo contigo.',
-    items: ['Clases individuales', 'Grupos reducidos', 'Por teléfono, 30 minutos', 'Clases virtuales'],
+    items: ['Clases individuales', 'Grupos reducidos', 'Por teléfono, 30 minutos', 'Presencial a consultar'],
     href: '/clases-online-y-por-telefono',
     cta: 'Ver clases online y por teléfono',
   },
@@ -26,8 +26,8 @@ const audiencias = [
     num: '03',
     titulo: 'Empresas',
     texto:
-      'Francés para tu equipo, y puntualmente inglés. Me desplazo a la empresa y el programa se hace a medida.',
-    items: ['Programa según vuestras necesidades', 'En vuestra oficina o en remoto', 'Individual o en grupo', 'Horarios compatibles con el trabajo'],
+      'Francés para tu equipo, y puntualmente inglés. Por videollamada, con un programa hecho a medida de vuestro trabajo real.',
+    items: ['Programa según vuestras necesidades', 'Por videollamada, desde cualquier sede', 'Individual o en grupo', 'Horarios compatibles con el trabajo'],
     href: '/clases-para-empresas',
     cta: 'Ver clases para empresas',
   },
@@ -35,8 +35,13 @@ const audiencias = [
 
 const modalidades = [
   {
+    nombre: 'Online',
+    texto: 'Por videollamada. Es la modalidad por defecto y la que mejor funciona.',
+    meta: '30 min · 1 h',
+  },
+  {
     nombre: 'Individual',
-    texto: 'Un profesor, un alumno. En tu casa, en tu empresa o donde te venga bien.',
+    texto: 'Una profesora, un alumno, a tu ritmo y con el temario que necesites.',
     meta: '1 h · 1 h 30 · 2 h',
   },
   {
@@ -45,9 +50,9 @@ const modalidades = [
     meta: '1 h · 1 h 30 · 2 h',
   },
   {
-    nombre: 'Online',
-    texto: 'Videollamada con la misma preparación que una clase presencial.',
-    meta: '30 min · 1 h',
+    nombre: 'Presencial',
+    texto: 'A consultar: depende de la zona, del número de clases y del calendario.',
+    meta: 'Consultar',
   },
   {
     nombre: 'Por teléfono',
@@ -129,12 +134,61 @@ const opiniones = [
     fr: true,
   },
 ];
+const faq = [
+  {
+    q: '¿Cuánto cuesta una clase?',
+    a: 'Depende de la modalidad y de la frecuencia. Escríbeme y te lo cuento sin compromiso.',
+  },
+  {
+    q: '¿Hay que hacer una prueba de nivel?',
+    a: 'No hace falta ninguna prueba formal. En la primera llamada te pregunto cuánto tiempo has estudiado francés, si has viajado a Francia y para qué lo necesitas, y con eso me hago una idea. En los primeros minutos de la primera clase el nivel ya se ve claro.',
+  },
+  {
+    q: '¿Dónde se dan las clases?',
+    a: 'Por defecto son online: por videollamada o por teléfono. Si necesitas clases presenciales, consúltame — depende de la zona, del número de clases y de cómo tenga el calendario.',
+  },
+  {
+    q: '¿Das clase los sábados?',
+    a: 'Normalmente no, pero depende de cómo tenga el calendario. Pregúntame y lo miramos.',
+  },
+  {
+    q: '¿Preparas exámenes oficiales?',
+    a: 'Sí: DELF, DALF, IGCSE, A Levels y otros.',
+  },
+  {
+    q: '¿Hay permanencia o un mínimo de clases?',
+    a: 'No. Empezamos cuando quieras y lo dejas cuando quieras. Ahora bien, te recomiendo cubrir de septiembre a junio: durante el curso es más difícil encontrar hueco, y es lo que de verdad garantiza resultados.',
+  },
+  {
+    q: '¿Desde qué edad das clase?',
+    a: 'A todas las edades. Me encanta trabajar con niños y disfruto igual conversando con adultos.',
+  },
+  {
+    q: '¿Das clase en verano?',
+    a: 'Sí, y también hago campamentos.',
+  },
+  {
+    q: 'No hablo nada de francés, ¿es un problema?',
+    a: 'Ninguno. Soy nativa de francés, pero hablo español perfectamente, así que puedes empezar desde cero sin agobiarte.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
 ---
 
 <Landing
   title="Komuniki · Clases de francés en Madrid con Christine Dauzon"
   description="Clases de francés para adultos, niños y empresas en Madrid, con profesora nativa. Presencial, online o por teléfono, siempre adaptadas a ti. Christine Dauzon — academia Komuniki."
   hreflang
+  schema={faqSchema}
 >
   <Header />
 
@@ -157,7 +211,7 @@ const opiniones = [
 
           <div class="hero__facts">
             <span><strong>Francés</strong> nativo · Inglés puntual · Refuerzo escolar</span>
-            <span><strong>Presencial</strong> · Online · Teléfono</span>
+            <span><strong>Online</strong> · Teléfono · Presencial a consultar</span>
             <span>Getafe, <strong>Madrid</strong></span>
           </div>
         </div>
@@ -290,8 +344,8 @@ const opiniones = [
 
           <p style="margin-top:1.25rem;">
             Soy profesora nativa de francés y llevo la academia Komuniki desde Getafe, Madrid. Doy
-            clase a particulares y a empresas, y me desplazo al domicilio o a la oficina cuando hace
-            falta.
+            clase a particulares y a empresas, por videollamada y por teléfono. Si necesitas
+            clases presenciales, consúltame y lo miramos.
           </p>
           <p>
             También doy clases por teléfono y online. Suelen gustar porque son más flexibles y más
@@ -304,7 +358,11 @@ const opiniones = [
             defenderte tú solo.
           </p>
 
-          <p class="about__sign">— Christine</p>
+          <p class="about__sign">
+            «Mi propósito es ayudar a una persona a desarrollarse, hasta llegar a sentirse realizada,
+            adulta y responsable en su forma de afrontar la vida.»
+          </p>
+          <p class="muted" style="margin-top:0.5rem;">— Christine</p>
 
           <div class="about__marks">
             <img src="/images/belecole.jpg" alt="" width="358" height="440" loading="lazy" />
@@ -345,6 +403,27 @@ const opiniones = [
                   {op.contexto}
                 </footer>
               </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2 class="h-section">Lo que suelen preguntarme</h2>
+        </div>
+
+        <div class="faq">
+          {
+            faq.map((item) => (
+              <div class="faq__item reveal">
+                <h3>{item.q}</h3>
+                <p>{item.a}</p>
+              </div>
             ))
           }
         </div>

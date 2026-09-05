@@ -973,6 +973,37 @@ p {
   padding: 0.1rem 0.5rem;
 }
 
+/* ---------- Preguntas frecuentes ---------- */
+
+.faq {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.75rem, 4vw, 3rem) clamp(2rem, 5vw, 4rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.faq__item {
+  border-top: 1px solid var(--line-strong);
+  padding-top: 1.2rem;
+}
+
+.faq__item h3 {
+  font-size: var(--step-1);
+  margin-bottom: 0.6rem;
+}
+
+.faq__item p {
+  color: var(--text-soft);
+  max-width: 46ch;
+}
+
+@media (max-width: 760px) {
+  .faq {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
 /* ---------- CTA ---------- */
 
 .cta-band {
