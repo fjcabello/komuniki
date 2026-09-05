@@ -8,7 +8,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = '¡Aprende idiomas y comunica! Academia de idiomas en Madrid - Francés, Inglés, Español y más.' } = Astro.props;
+const { title, description = '¡Aprende idiomas y comunica! Clases de francés en Madrid con profesora nativa, y de inglés puntualmente.' } = Astro.props;
 const currentPath = new URL(Astro.request.url).pathname.replace(/\/$/, '') || '/';
 const pageLang = currentPath === '/fr' || currentPath.startsWith('/fr/') ? 'fr' : 'es';
 const canonicalPath = currentPath === '/' ? '/' : `${currentPath}/`;
