@@ -173,9 +173,12 @@ const faq = [
   },
 ];
 
+const actualizado = new Date();
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
+  dateModified: actualizado.toISOString().slice(0, 10),
   mainEntity: faq.map((item) => ({
     '@type': 'Question',
     name: item.q,
@@ -423,6 +426,10 @@ const faqSchema = {
           <span class="eyebrow">Preguntas frecuentes</span>
           <h2 class="h-section">Lo que suelen preguntarme</h2>
         </div>
+
+        <p class="muted" style="font-size:0.86rem;margin-top:0.5rem;">
+          Actualizado en {actualizado.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })}.
+        </p>
 
         <div class="faq">
           {
