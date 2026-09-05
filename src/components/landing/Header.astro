@@ -1,0 +1,97 @@
+---
+const links = [
+  { href: '#inicio', label: 'Inicio' },
+  { href: '#clases', label: 'Clases' },
+  { href: '#metodo', label: 'Método' },
+  { href: '#christine', label: 'Sobre mí' },
+  { href: '#opiniones', label: 'Opiniones' },
+  { href: '#contacto', label: 'Contacto' },
+];
+---
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap site-header__inner">
+    <a href="#inicio" class="brand" aria-label="Komuniki — inicio">
+      <img src="/images/logo-komuniki.png" alt="Komuniki — aprende idiomas y comunica" width="258" height="258" />
+    </a>
+
+    <nav class="site-nav" id="siteNav" aria-label="Navegación principal">
+      {links.map((link) => <a href={link.href} data-nav-link>{link.label}</a>)}
+      <a href="#contacto" class="btn btn--primary nav-cta">Escríbeme</a>
+    </nav>
+
+    <a href="#contacto" class="btn btn--primary btn--sm header-cta">Escríbeme</a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  const nav = document.getElementById('siteNav');
+  const toggle = document.getElementById('navToggle');
+
+  // Header compacto al hacer scroll
+  const onScroll = () => header?.classList.toggle('is-stuck', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Menú móvil
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('is-open') ?? false;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  });
+
+  nav?.querySelectorAll('a').forEach((link) =>
+    link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    })
+  );
+
+  // Enlace activo según la sección visible
+  const navLinks = [...document.querySelectorAll('[data-nav-link]')] as HTMLAnchorElement[];
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href') ?? ''))
+    .filter((el): el is Element => Boolean(el));
+
+  if (sections.length) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((link) =>
+            link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`)
+          );
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    );
+    sections.forEach((section) => spy.observe(section));
+  }
+
+  // Aparición suave de las secciones
+  const reveals = document.querySelectorAll('.reveal');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    reveals.forEach((el) => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-in');
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.06 }
+    );
+    reveals.forEach((el) => io.observe(el));
+  }
+</script>
