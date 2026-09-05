@@ -6,28 +6,28 @@ import Footer from '../components/landing/Footer.astro';
 const audiencias = [
   {
     num: '01',
-    titulo: 'Adultos',
+    titulo: 'Niños y adolescentes',
     texto:
-      'Para el trabajo, para viajar, para preparar un examen o simplemente por curiosidad. Fijamos el objetivo y el ritmo contigo.',
-    items: ['Clases individuales', 'Grupos reducidos', 'Por teléfono, 30 minutos', 'Presencial a consultar'],
-    href: '/clases-online-y-por-telefono',
-    cta: 'Ver clases online y por teléfono',
+      'Un niño no aprende como un adulto. Por eso sus clases se preparan aparte, con materiales pensados para su edad — y con cariño, que es lo que acaba ganándose su confianza.',
+    items: ['Juegos, canciones e historias', 'Apoyo escolar y refuerzo', 'Temas y métodos adaptados', 'Solo hablo en francés en clase'],
+    href: '/clases-para-ninos',
+    cta: 'Ver clases para niños',
   },
   {
     num: '02',
-    titulo: 'Niños y adolescentes',
+    titulo: 'Adultos',
     texto:
-      'Un niño no aprende como un adulto. Por eso sus clases se preparan aparte, con materiales pensados para su edad.',
-    items: ['Juegos, canciones e historias', 'Apoyo escolar y refuerzo', 'Temas y métodos adaptados', 'El profesor solo habla en el idioma'],
-    href: '/clases-para-ninos',
-    cta: 'Ver clases para niños',
+      'Para el trabajo, para viajar, para preparar un examen o simplemente por curiosidad. Fijamos juntos el objetivo y el ritmo.',
+    items: ['Clases individuales', 'Grupos reducidos por nivel', 'Por teléfono, 30 minutos', 'Presencial a consultar'],
+    href: '/clases-online-y-por-telefono',
+    cta: 'Ver clases online y por teléfono',
   },
   {
     num: '03',
     titulo: 'Empresas',
     texto:
-      'Francés para tu equipo, y puntualmente inglés. Por videollamada, con un programa hecho a medida de vuestro trabajo real.',
-    items: ['Programa según vuestras necesidades', 'Por videollamada, desde cualquier sede', 'Individual o en grupo', 'Horarios compatibles con el trabajo'],
+      'Francés para tu equipo, con alguien que ha pasado diez años en el departamento de exportación de multinacionales francesas. Por videollamada y a medida de vuestro trabajo real.',
+    items: ['Programa según vuestras necesidades', 'Por videollamada, desde cualquier sede', 'Individual o en grupo por nivel', 'Horarios compatibles con el trabajo'],
     href: '/clases-para-empresas',
     cta: 'Ver clases para empresas',
   },
@@ -46,7 +46,7 @@ const modalidades = [
   },
   {
     nombre: 'Grupo reducido',
-    texto: 'Mismo nivel, más conversación. Sale más económico y se practica el doble.',
+    texto: 'Grupos por nivel: más conversación, sale más económico y se practica el doble.',
     meta: '1 h · 1 h 30 · 2 h',
   },
   {
@@ -153,7 +153,7 @@ const faq = [
   },
   {
     q: '¿Preparas exámenes oficiales?',
-    a: 'Sí: DELF, DALF, IGCSE, A Levels y otros.',
+    a: 'Sí: DELF, DALF, French IGCSE, French A Levels y otros.',
   },
   {
     q: '¿Hay permanencia o un mínimo de clases?',
@@ -242,7 +242,8 @@ const faqSchema = {
           <span class="eyebrow">Clases</span>
           <h2 class="h-section">¿Qué necesitas?</h2>
           <p class="lede" style="margin-top:1rem;">
-            Cada alumno llega con un objetivo distinto. El punto de partida siempre es el tuyo.
+            No hay dos alumnos iguales, así que no hay un temario único: montamos las clases sobre
+            lo que tú necesites conseguir.
           </p>
         </div>
 
@@ -343,19 +344,25 @@ const faqSchema = {
           <h2 class="h-section">Soy Christine Dauzon</h2>
 
           <p style="margin-top:1.25rem;">
-            Soy profesora nativa de francés y llevo la academia Komuniki desde Getafe, Madrid. Doy
-            clase a particulares y a empresas, por videollamada y por teléfono. Si necesitas
-            clases presenciales, consúltame y lo miramos.
+            Soy profesora nativa de francés, con <strong>22 años dando clase</strong>, y llevo la
+            academia Komuniki desde Getafe, Madrid. Antes pasé <strong>diez años en el departamento
+            de exportación de empresas multinacionales en Francia</strong>, así que sé bastante bien
+            para qué se usa un idioma fuera del aula.
           </p>
           <p>
-            Las clases por teléfono son cortas —media hora— y frecuentes. Suelen gustar justo por
-            eso: son flexibles y encajan en cualquier agenda.
+            Doy clase a particulares y a empresas, por videollamada y por teléfono; si necesitas
+            clases presenciales, consúltame y lo miramos. Hablo español perfectamente, así que
+            empezar desde cero no es problema.
           </p>
           <p>
-            Doy clase de francés y, puntualmente, de inglés, además de refuerzo escolar. Hablo
-            español perfectamente, así que empezar desde cero no es problema. Lo que más me importa
-            no es que apruebes un examen: es que salgas capaz de mantener una conversación y de
-            defenderte tú solo.
+            Soy rigurosa: no me importa dedicar el tiempo que haga falta a explicar algo, porque lo
+            que me interesa es que de verdad lo entiendas. Y soy sincera con cómo van tus progresos,
+            aunque a veces toque decir que hay que apretar. Lo que más me importa no es que apruebes
+            un examen: es que salgas capaz de mantener una conversación y de defenderte tú solo.
+          </p>
+          <p>
+            Si no me queda hueco en el horario, o si buscas otro idioma, lo consulto con profesores
+            de mi entorno por si pueden ayudarte.
           </p>
 
           <p class="about__sign">

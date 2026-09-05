@@ -625,6 +625,14 @@ p {
 .audience__item {
   border-top: 2px solid var(--ink);
   padding-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Empuja el enlace al pie para que los tres queden alineados */
+.audience__item .link-arrow {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .audience__num {
@@ -648,7 +656,7 @@ p {
 
 .audience__list {
   list-style: none;
-  margin: 0 0 1.4rem;
+  margin: 0 0 1.6rem;
   padding: 0;
   display: grid;
   gap: 0.45rem;
